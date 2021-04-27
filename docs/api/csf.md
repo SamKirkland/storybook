@@ -138,13 +138,13 @@ For more information on setting up [Docs](../writing-docs/introduction.md) and [
 
 ## Storybook export vs name handling
 
-Storybook handles named exports and `story.name` slightly differently. When should you use one vs. the other?
+Storybook handles named exports and `story.storyName` slightly differently. When should you use one vs. the other?
 
 The named export is always used to determine the story ID / URL.
 
-If you specify `story.name`, it will be used as the story display name in the UI.
+If you specify `story.storyName`, it will be used as the story display name in the UI.
 
-If you don't specify `story.name`, the named export will be used to generate the display name. Storybook passes the named export through a `storyNameFromExport` function, which is implemented with `lodash.startCase`:
+If you don't specify `story.storyName`, the named export will be used to generate the display name. Storybook passes the named export through a `storyNameFromExport` function, which is implemented with `lodash.startCase`:
 
 <!-- prettier-ignore-start -->
 
@@ -158,7 +158,7 @@ If you don't specify `story.name`, the named export will be used to generate the
 
 When you want to change the name of your story, just rename the CSF export. This will change the name of the story and also change the story's ID and URL.
 
-You should use the `story.name` option in the following cases:
+You should use the `story.storyName` option in the following cases:
 
 1. You want the name to show up in the Storybook UI in a way that's not possible with a named export, e.g. reserved keywords like "default", special characters like emoji, spacing/capitalization other than what's provided by `storyNameFromExport`.
 2. You want to preserve the Story ID independently from changing how it's displayed. Having stable Story ID's is useful for integration with third party tools.
